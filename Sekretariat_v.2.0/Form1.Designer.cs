@@ -110,7 +110,7 @@
             // Name_EditBox
             // 
             this.Name_EditBox.Location = new System.Drawing.Point(276, 38);
-            this.Name_EditBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name_EditBox.Margin = new System.Windows.Forms.Padding(2);
             this.Name_EditBox.Name = "Name_EditBox";
             this.Name_EditBox.Size = new System.Drawing.Size(159, 23);
             this.Name_EditBox.TabIndex = 4;
@@ -119,7 +119,7 @@
             // Code_EditBox
             // 
             this.Code_EditBox.Location = new System.Drawing.Point(276, 238);
-            this.Code_EditBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Code_EditBox.Margin = new System.Windows.Forms.Padding(2);
             this.Code_EditBox.Name = "Code_EditBox";
             this.Code_EditBox.Size = new System.Drawing.Size(159, 23);
             this.Code_EditBox.TabIndex = 6;
@@ -130,7 +130,7 @@
             this.pictureBox.Image = global::Sekretariat_v._2._0.Properties.Resources._1;
             this.pictureBox.InitialImage = null;
             this.pictureBox.Location = new System.Drawing.Point(73, 229);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(171, 34);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -155,7 +155,7 @@
             // LoginButton
             // 
             this.LoginButton.Location = new System.Drawing.Point(460, 277);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(2);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(111, 25);
             this.LoginButton.TabIndex = 9;
@@ -166,7 +166,7 @@
             // Password_EditBox
             // 
             this.Password_EditBox.Location = new System.Drawing.Point(276, 93);
-            this.Password_EditBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Password_EditBox.Margin = new System.Windows.Forms.Padding(2);
             this.Password_EditBox.Name = "Password_EditBox";
             this.Password_EditBox.PasswordChar = '*';
             this.Password_EditBox.Size = new System.Drawing.Size(159, 23);
@@ -177,7 +177,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(575, 13);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(682, 346);
@@ -191,9 +191,9 @@
             this.tabPage1.Controls.Add(this.NazwaBomboBox);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(674, 318);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Wyszukaj ucznia/uczniów";
@@ -202,7 +202,7 @@
             // SzukajButton
             // 
             this.SzukajButton.Location = new System.Drawing.Point(489, 129);
-            this.SzukajButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SzukajButton.Margin = new System.Windows.Forms.Padding(2);
             this.SzukajButton.Name = "SzukajButton";
             this.SzukajButton.Size = new System.Drawing.Size(90, 20);
             this.SzukajButton.TabIndex = 5;
@@ -213,7 +213,7 @@
             // LiteraTextBox
             // 
             this.LiteraTextBox.Location = new System.Drawing.Point(489, 100);
-            this.LiteraTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LiteraTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LiteraTextBox.Name = "LiteraTextBox";
             this.LiteraTextBox.Size = new System.Drawing.Size(106, 23);
             this.LiteraTextBox.TabIndex = 4;
@@ -226,7 +226,7 @@
             "Zawiera",
             "Rozpoczyna się"});
             this.KryteriaComboBox.Location = new System.Drawing.Point(263, 100);
-            this.KryteriaComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.KryteriaComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.KryteriaComboBox.Name = "KryteriaComboBox";
             this.KryteriaComboBox.Size = new System.Drawing.Size(198, 23);
             this.KryteriaComboBox.TabIndex = 3;
@@ -240,7 +240,7 @@
             "Nazwisko",
             "Klasa"});
             this.NazwaBomboBox.Location = new System.Drawing.Point(45, 100);
-            this.NazwaBomboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NazwaBomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.NazwaBomboBox.Name = "NazwaBomboBox";
             this.NazwaBomboBox.Size = new System.Drawing.Size(198, 23);
             this.NazwaBomboBox.TabIndex = 2;
@@ -266,9 +266,9 @@
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(674, 318);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Dodaj ucznia";
@@ -277,7 +277,7 @@
             // DodajButton
             // 
             this.DodajButton.Location = new System.Drawing.Point(224, 235);
-            this.DodajButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DodajButton.Margin = new System.Windows.Forms.Padding(2);
             this.DodajButton.Name = "DodajButton";
             this.DodajButton.Size = new System.Drawing.Size(109, 56);
             this.DodajButton.TabIndex = 17;
@@ -288,7 +288,7 @@
             // klasaInput
             // 
             this.klasaInput.Location = new System.Drawing.Point(199, 197);
-            this.klasaInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.klasaInput.Margin = new System.Windows.Forms.Padding(2);
             this.klasaInput.Name = "klasaInput";
             this.klasaInput.Size = new System.Drawing.Size(159, 23);
             this.klasaInput.TabIndex = 16;
@@ -296,7 +296,7 @@
             // NazwiskoInput
             // 
             this.NazwiskoInput.Location = new System.Drawing.Point(199, 121);
-            this.NazwiskoInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NazwiskoInput.Margin = new System.Windows.Forms.Padding(2);
             this.NazwiskoInput.Name = "NazwiskoInput";
             this.NazwiskoInput.Size = new System.Drawing.Size(159, 23);
             this.NazwiskoInput.TabIndex = 15;
@@ -304,7 +304,7 @@
             // InputImie
             // 
             this.InputImie.Location = new System.Drawing.Point(199, 43);
-            this.InputImie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InputImie.Margin = new System.Windows.Forms.Padding(2);
             this.InputImie.Name = "InputImie";
             this.InputImie.Size = new System.Drawing.Size(159, 23);
             this.InputImie.TabIndex = 12;
@@ -359,7 +359,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Sekretariat";
             this.Load += new System.EventHandler(this.Form1_Load);

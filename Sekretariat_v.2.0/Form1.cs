@@ -121,6 +121,8 @@ namespace Sekretariat_v._2._0
 
         string Search,Simie,Snaziwsko,Sklasa="";
         int INazwaCombobox;
+        int IKryteriaCombobox;
+
         private void SzukajButton_Click(object sender, EventArgs e)
         {
             if (NazwaBomboBox.Text != "" && KryteriaComboBox.Text !="" && LiteraTextBox.Text !="" )
@@ -138,7 +140,25 @@ namespace Sekretariat_v._2._0
                 {
                     INazwaCombobox = 2;
                 }
-                Debug.WriteLine("WYbrane to: " + "JEDEN:"+INazwaCombobox+"DWA: ");
+
+
+                if (KryteriaComboBox.SelectedIndex == 0)
+                {
+                    IKryteriaCombobox = 0;
+                }else if (KryteriaComboBox.SelectedIndex == 1)
+                {
+                    IKryteriaCombobox = 1;
+                }
+                Debug.WriteLine("WYbrane to: " + "JEDEN:"+INazwaCombobox+"  sDWA: "+ IKryteriaCombobox);
+
+                if (IKryteriaCombobox ==0)
+                {
+                    if(INazwaCombobox == 0)
+                    {
+
+                    }
+
+                }
             }
             else
             {
