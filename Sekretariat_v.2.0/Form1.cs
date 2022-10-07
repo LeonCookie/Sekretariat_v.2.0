@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Xml;
 
 namespace Sekretariat_v._2._0
 {
@@ -130,7 +131,14 @@ namespace Sekretariat_v._2._0
                 if (NazwaBomboBox.SelectedIndex == 0 )
                 {
                     INazwaCombobox = 0;
+                }else if(NazwaBomboBox.SelectedIndex == 1)
+                {
+                    INazwaCombobox = 1;
+                }else if(NazwaBomboBox.SelectedIndex == 2)
+                {
+                    INazwaCombobox = 2;
                 }
+                Debug.WriteLine("WYbrane to: " + "JEDEN:"+INazwaCombobox+"DWA: ");
             }
             else
             {
@@ -140,7 +148,7 @@ namespace Sekretariat_v._2._0
 
         private async void DodajButton_Click(object sender, EventArgs e)
         {
-            //if(InputImie.Text !="" && NazwiskoInput.Text !="" && klasaInput.Text != "")
+            if(InputImie.Text !="" && NazwiskoInput.Text !="" && klasaInput.Text != "")
             {
                 InputImie.Text = Simie;
                 NazwiskoInput.Text = Snaziwsko;
@@ -148,20 +156,26 @@ namespace Sekretariat_v._2._0
 
                 Assembly asm = Assembly.GetExecutingAssembly();
                 StreamReader reader = new StreamReader(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
-                StreamWriter writer = new StreamWriter(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
 
                 
-                writer.WriteLine("sad");
-                writer.Close();
+                
                 
 
-                        
-                
+                TextWriter txt = new StreamWriter("C:\\Users\\student\\Desktop\\uczen.txt");
+                txt.Write(" ", Simie + " " + Snaziwsko + " " + Sklasa);
+                txt.Close();
+
+
+
+
+
+
+
                 Debug.WriteLine(reader.ReadToEnd());
                
 
             }
-           // else
+            else
             {
                 MessageBox.Show("Prosze dokladnie wpisac dane do wprowadzeia");
             }
