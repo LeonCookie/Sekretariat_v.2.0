@@ -1,4 +1,7 @@
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Text;
 
 namespace Sekretariat_v._2._0
 {
@@ -11,6 +14,9 @@ namespace Sekretariat_v._2._0
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            randomIMG();
+            //tabControl1.Hide();
+           
 
         }
 
@@ -35,30 +41,26 @@ namespace Sekretariat_v._2._0
         }
 
 
-        int random1 = 1;
-        string Slogin,Spassword,Scode="";
-        string ScheckCode = "mxyxw";
-        private void randomLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        void randomIMG()
         {
-            
-            Debug.WriteLine("kliknieto link");
-
             var randomGenerator = new Random();
-             random1 = randomGenerator.Next(1, 7);
+            random1 = randomGenerator.Next(1, 7);
 
 
-            
+
             if (random1 == 1)
             {
                 pictureBox.Image = Properties.Resources._1;
                 ScheckCode = "mxyxw";
 
-            } else if (random1 == 2)
+            }
+            else if (random1 == 2)
             {
                 pictureBox.Image = Properties.Resources._2;
                 ScheckCode = "b5nmm";
 
-            } else if(random1 == 3)
+            }
+            else if (random1 == 3)
             {
                 pictureBox.Image = Properties.Resources._3;
                 ScheckCode = "74853";
@@ -83,9 +85,86 @@ namespace Sekretariat_v._2._0
                 pictureBox.Image = Properties.Resources._7;
                 ScheckCode = "c7gb3";
             }
-            Debug.WriteLine(random1+"   "+ScheckCode);
+            Debug.WriteLine(random1 + "   " + ScheckCode);
+        }
+            
+
+        int random1 = 1;
+        string Slogin,Spassword,Scode="";
+        string ScheckCode = "";
+        private void randomLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            Debug.WriteLine("kliknieto link");
+            randomIMG();
+
+            
 
 
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LiteraTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KryteriaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        string Search,Simie,Snaziwsko,Sklasa="";
+        int INazwaCombobox;
+        private void SzukajButton_Click(object sender, EventArgs e)
+        {
+            if (NazwaBomboBox.Text != "" && KryteriaComboBox.Text !="" && LiteraTextBox.Text !="" )
+            {
+                Search = LiteraTextBox.Text;
+                Debug.WriteLine("zaczyna szukanie");
+                Debug.WriteLine(NazwaBomboBox.SelectedIndex);
+                if (NazwaBomboBox.SelectedIndex == 0 )
+                {
+                    INazwaCombobox = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Prosze wype≥niÊ dane do szukania poprawnie");
+            }
+        }
+
+        private async void DodajButton_Click(object sender, EventArgs e)
+        {
+            //if(InputImie.Text !="" && NazwiskoInput.Text !="" && klasaInput.Text != "")
+            {
+                InputImie.Text = Simie;
+                NazwiskoInput.Text = Snaziwsko;
+                klasaInput.Text = Sklasa;
+
+                Assembly asm = Assembly.GetExecutingAssembly();
+                StreamReader reader = new StreamReader(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
+                StreamWriter writer = new StreamWriter(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
+
+                
+                writer.WriteLine("sad");
+                writer.Close();
+                
+
+                        
+                
+                Debug.WriteLine(reader.ReadToEnd());
+               
+
+            }
+           // else
+            {
+                MessageBox.Show("Prosze dokladnie wpisac dane do wprowadzeia");
+            }
         }
 
         bool BCanIdo = false;
@@ -98,49 +177,69 @@ namespace Sekretariat_v._2._0
             }
             else
             {
-                if (Slogin == "admin" && Spassword== "Qwerty1@34")
-                {
-                    if(random1 == 1 && ScheckCode == "mxyxw")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1 == 2 && ScheckCode == "b5nmm")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1 == 3 && ScheckCode == "74853")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1 == 4 && ScheckCode == "cg5dd")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1 == 5 && ScheckCode == "x3deb")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1 == 6 && ScheckCode == "befbd")
-                    {
-                        BCanIdo = true;
-                    }
-                    else if(random1== 7 && ScheckCode== "c7gb3")
-                    {
-                        BCanIdo = true;
-                    }
+                Slogin = Name_EditBox.Text;
+                Spassword = Password_EditBox.Text;
+                ScheckCode = Code_EditBox.Text;
 
+
+                if (random1 == 1 && ScheckCode == "mxyxw")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 2 && ScheckCode == "b5nmm")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 3 && ScheckCode == "74853")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 4 && ScheckCode == "cg5dd")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 5 && ScheckCode == "x3deb")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 6 && ScheckCode == "befbd")
+                {
+                    BCanIdo = true;
+                }
+                else if (random1 == 7 && ScheckCode == "c7gb3")
+                {
+                    BCanIdo = true;
+                }
+
+                if (Slogin == "admin" && Spassword== "Qwerty1@34" && BCanIdo==true)
+                {
+                    
+                    
+                        Debug.WriteLine("Witam w systemie");
+                        Slogin = "";
+                        Spassword = "";
+                        Name_EditBox.Clear();
+                        Password_EditBox.Clear();
+                        Code_EditBox.Clear();
+                        randomIMG();
+                        
+                    tabControl1.Location=(Location = new System.Drawing.Point(21,20));
+                    tabControl1.Show();
 
                 }
                 else
                 {
                     BCanIdo = false;
                     MessageBox.Show("èle wype≥nionio dane");
+                    Slogin = "";
+                    Spassword = "";
+                    Name_EditBox.Clear();
+                    Password_EditBox.Clear();
+                    Code_EditBox.Clear();
+                    randomIMG();
                 }
 
-                if(BCanIdo == true)
-                {
-                    Debug.WriteLine("Witam w systemie");
-                }
+
             }
         }
     }
