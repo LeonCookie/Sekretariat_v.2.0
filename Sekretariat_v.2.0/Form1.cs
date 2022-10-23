@@ -99,8 +99,6 @@ namespace Sekretariat_v._2._0
             Debug.WriteLine("kliknieto link");
             randomIMG();
 
-            
-
 
         }
 
@@ -125,45 +123,7 @@ namespace Sekretariat_v._2._0
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-            if (NazwaBomboBox.Text != "" && KryteriaComboBox.Text !="" && LiteraTextBox.Text !="" )
-            {
-                Search = LiteraTextBox.Text;
-                Debug.WriteLine("zaczyna szukanie");
-                Debug.WriteLine(NazwaBomboBox.SelectedIndex);
-                if (NazwaBomboBox.SelectedIndex == 0 )
-                {
-                    INazwaCombobox = 0;
-                }else if(NazwaBomboBox.SelectedIndex == 1)
-                {
-                    INazwaCombobox = 1;
-                }else if(NazwaBomboBox.SelectedIndex == 2)
-                {
-                    INazwaCombobox = 2;
-                }
-
-
-                if (KryteriaComboBox.SelectedIndex == 0)
-                {
-                    IKryteriaCombobox = 0;
-                }else if (KryteriaComboBox.SelectedIndex == 1)
-                {
-                    IKryteriaCombobox = 1;
-                }
-                Debug.WriteLine("WYbrane to: " + "JEDEN:"+INazwaCombobox+"  sDWA: "+ IKryteriaCombobox);
-
-                if (IKryteriaCombobox ==0)
-                {
-                    if(INazwaCombobox == 0)
-                    {
-
-                    }
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Prosze wype³niæ dane do szukania poprawnie");
-            }
+           
         }
 
         private async void DodajButton_Click(object sender, EventArgs e)
