@@ -136,7 +136,18 @@ namespace Sekretariat_v._2._0
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-           
+            if (NazwaBomboBox.SelectedIndex == 0)//imie
+            {
+                Debug.WriteLine("Imie");
+            }
+            else if (NazwaBomboBox.SelectedIndex == 1)//nazwisko
+            {
+                Debug.WriteLine("Naziwsko");
+            }
+            else if(NazwaBomboBox.SelectedIndex == 2)//klasa
+            {
+                Debug.WriteLine("Klasa");
+            }
         }
 
         private async void DodajButton_Click(object sender, EventArgs e)
