@@ -1,3 +1,4 @@
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -134,25 +135,36 @@ namespace Sekretariat_v._2._0
                 NazwiskoInput.Text = Snaziwsko;
                 klasaInput.Text = Sklasa;
 
-                Assembly asm = Assembly.GetExecutingAssembly();
-                StreamReader reader = new StreamReader(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
-
-                
-                
-                
-
-                TextWriter txt = new StreamWriter("C:\\Users\\student\\Desktop\\uczen.txt");
-                txt.Write(" ", Simie + " " + Snaziwsko + " " + Sklasa);
-                txt.Close();
-
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = @"INSERT INTO  [Table](Imie, Nazwisko, Klasa) VALUES(@Imie, @Nazwisko, @Klasa)";
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Imie", InputImie.Text);
+                cmd.Parameters.AddWithValue("@Nazwisko", NazwiskoInput.Text);
+                cmd.Parameters.AddWithValue("@Plec", klasaInput.Text);
 
 
+                cmd.ExecuteNonQuery();
+                con.Close();
 
 
 
 
-                Debug.WriteLine(reader.ReadToEnd());
-               
+                InputImie.Text = string.Empty;
+                NazwiskoInput.Text = string.Empty;
+                klasaInput.Text = string.Empty;
+                MessageBox.Show("Dodano!");
+
+
+
+
+
+
+
+
+
 
             }
             else
