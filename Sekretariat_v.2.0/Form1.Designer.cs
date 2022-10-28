@@ -41,6 +41,11 @@
             this.Password_EditBox = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nazwisko = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Klasa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SzukajButton = new System.Windows.Forms.Button();
             this.LiteraTextBox = new System.Windows.Forms.TextBox();
             this.KryteriaComboBox = new System.Windows.Forms.ComboBox();
@@ -57,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -186,6 +192,7 @@
             // tabPage1
             // 
             this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.SzukajButton);
             this.tabPage1.Controls.Add(this.LiteraTextBox);
             this.tabPage1.Controls.Add(this.KryteriaComboBox);
@@ -199,6 +206,40 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Wyszukaj ucznia/uczniów";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Imie,
+            this.Nazwisko,
+            this.Klasa});
+            this.dataGridView1.Location = new System.Drawing.Point(45, 231);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(443, 150);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Imie
+            // 
+            this.Imie.HeaderText = "Imie";
+            this.Imie.Name = "Imie";
+            // 
+            // Nazwisko
+            // 
+            this.Nazwisko.HeaderText = "Nazwisko";
+            this.Nazwisko.Name = "Nazwisko";
+            // 
+            // Klasa
+            // 
+            this.Klasa.HeaderText = "Klasa";
+            this.Klasa.Name = "Klasa";
             // 
             // SzukajButton
             // 
@@ -368,6 +409,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -402,5 +444,10 @@
         private Label label8;
         private Label label7;
         private Label label6;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Imie;
+        private DataGridViewTextBoxColumn Nazwisko;
+        private DataGridViewTextBoxColumn Klasa;
     }
 }

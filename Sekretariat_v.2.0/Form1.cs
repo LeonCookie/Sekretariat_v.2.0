@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Xml;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Sekretariat_v._2._0
 {
@@ -25,8 +26,27 @@ namespace Sekretariat_v._2._0
 
 
         }
-        
-       
+        DataTable dtUczen = new DataTable("TableUczniowie");
+        private void binddatagrip1()
+        {
+
+            DataGridKsiazka.ItemsSource = dtUczen.DefaultView;
+            DataGridAutor.DataContext = null;
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\source\repos\WPF+SQL\WPF+SQL\Database1.mdf;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "Select  * from[TableKsiazka]";
+            cmd.Connection = con;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dtUczen);
+
+            dataGridView1.Items = dtUczen.DefaultView;
+
+            con.Close();
+        }
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -136,18 +156,64 @@ namespace Sekretariat_v._2._0
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-            if (NazwaBomboBox.SelectedIndex == 0)//imie
+            if(NazwaBomboBox.SelectedIndex == -1 ||KryteriaComboBox.SelectedIndex==-1||LiteraTextBox.Text=="")
             {
-                Debug.WriteLine("Imie");
+                MessageBox.Show("uzupe³nij kryteria wyszukiwania");
+
+
+
             }
-            else if (NazwaBomboBox.SelectedIndex == 1)//nazwisko
+            else
             {
-                Debug.WriteLine("Naziwsko");
+                if (NazwaBomboBox.SelectedIndex == 0)//imie
+                {
+                    Debug.WriteLine("Imie");
+                    if (KryteriaComboBox.SelectedIndex == 0)//zawiera
+                    {
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandText = @"SELECT* FROM [TableUczniowie] WHERE Imie Like '%@zawiera%')";
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Parameters.AddWithValue("@zawiera", KryteriaComboBox.Text);
+
+
+
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    else if (KryteriaComboBox.SelectedIndex == 1)//rozpoczyna sie
+                    {
+
+                    }
+                }
+                else if (NazwaBomboBox.SelectedIndex == 1)//nazwisko
+                {
+                    Debug.WriteLine("Naziwsko");
+                    if (KryteriaComboBox.SelectedIndex == 0)
+                    {
+
+                    }
+                    else if (KryteriaComboBox.SelectedIndex == 1)
+                    {
+
+                    }
+                }
+                else if (NazwaBomboBox.SelectedIndex == 2)//klasa
+                {
+                    Debug.WriteLine("Klasa");
+                    if (KryteriaComboBox.SelectedIndex == 0)
+                    {
+
+                    }
+                    else if (KryteriaComboBox.SelectedIndex == 1)
+                    {
+
+                    }
+                }
             }
-            else if(NazwaBomboBox.SelectedIndex == 2)//klasa
-            {
-                Debug.WriteLine("Klasa");
-            }
+            
         }
 
         private async void DodajButton_Click(object sender, EventArgs e)
