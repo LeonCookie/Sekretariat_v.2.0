@@ -26,25 +26,7 @@ namespace Sekretariat_v._2._0
 
 
         }
-        DataTable dtUczen = new DataTable("TableUczniowie");
-        private void binddatagrip1()
-        {
-
-            DataGridKsiazka.ItemsSource = dtUczen.DefaultView;
-            DataGridAutor.DataContext = null;
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrator\source\repos\WPF+SQL\WPF+SQL\Database1.mdf;Integrated Security=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "Select  * from[TableKsiazka]";
-            cmd.Connection = con;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-            da.Fill(dtUczen);
-
-            dataGridView1.Items = dtUczen.DefaultView;
-
-            con.Close();
-        }
+        
 
 
 
@@ -172,16 +154,16 @@ namespace Sekretariat_v._2._0
                     {
                         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
                         con.Open();
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = con;
-                        cmd.CommandText = @"SELECT* FROM [TableUczniowie] WHERE Imie Like '%@zawiera%')";
-                        cmd.CommandType = System.Data.CommandType.Text;
+                        SqlCommand cmd = new SqlCommand(@"SELECT* FROM [TableUczniowie] WHERE Imie Like '%@zawiera%')",con);
+                        
                         cmd.Parameters.AddWithValue("@zawiera", KryteriaComboBox.Text);
 
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt;
 
 
-                        cmd.ExecuteNonQuery();
-                        con.Close();
                     }
                     else if (KryteriaComboBox.SelectedIndex == 1)//rozpoczyna sie
                     {
