@@ -1,3 +1,5 @@
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -18,9 +20,13 @@ namespace Sekretariat_v._2._0
         {
             randomIMG();
             //tabControl1.Hide();
-           
+            
+
+
 
         }
+        
+       
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -120,6 +126,12 @@ namespace Sekretariat_v._2._0
 
         string Search,Simie,Snaziwsko,Sklasa="";
         int INazwaCombobox;
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         int IKryteriaCombobox;
 
         private void SzukajButton_Click(object sender, EventArgs e)
@@ -131,19 +143,17 @@ namespace Sekretariat_v._2._0
         {
             if(InputImie.Text !="" && NazwiskoInput.Text !="" && klasaInput.Text != "")
             {
-                InputImie.Text = Simie;
-                NazwiskoInput.Text = Snaziwsko;
-                klasaInput.Text = Sklasa;
+            
 
                 SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = @"INSERT INTO  [Table](Imie, Nazwisko, Klasa) VALUES(@Imie, @Nazwisko, @Klasa)";
+                cmd.CommandText = @"INSERT INTO [TableUczniowie](Imie, Nazwisko, Klasa) VALUES(@Imie, @Nazwisko, @Klasa)";
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@Imie", InputImie.Text);
                 cmd.Parameters.AddWithValue("@Nazwisko", NazwiskoInput.Text);
-                cmd.Parameters.AddWithValue("@Plec", klasaInput.Text);
+                cmd.Parameters.AddWithValue("@Klasa", klasaInput.Text);
 
 
                 cmd.ExecuteNonQuery();
@@ -156,15 +166,6 @@ namespace Sekretariat_v._2._0
                 NazwiskoInput.Text = string.Empty;
                 klasaInput.Text = string.Empty;
                 MessageBox.Show("Dodano!");
-
-
-
-
-
-
-
-
-
 
             }
             else

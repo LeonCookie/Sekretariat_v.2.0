@@ -185,6 +185,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.tabPage1.Controls.Add(this.SzukajButton);
             this.tabPage1.Controls.Add(this.LiteraTextBox);
             this.tabPage1.Controls.Add(this.KryteriaComboBox);
@@ -204,7 +205,7 @@
             this.SzukajButton.Location = new System.Drawing.Point(489, 129);
             this.SzukajButton.Margin = new System.Windows.Forms.Padding(2);
             this.SzukajButton.Name = "SzukajButton";
-            this.SzukajButton.Size = new System.Drawing.Size(90, 20);
+            this.SzukajButton.Size = new System.Drawing.Size(90, 26);
             this.SzukajButton.TabIndex = 5;
             this.SzukajButton.Text = "Szukaj";
             this.SzukajButton.UseVisualStyleBackColor = true;
@@ -346,7 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 492);
+            this.ClientSize = new System.Drawing.Size(1272, 673);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.Password_EditBox);
             this.Controls.Add(this.LoginButton);
