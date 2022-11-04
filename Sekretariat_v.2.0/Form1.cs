@@ -33,7 +33,7 @@ namespace Sekretariat_v._2._0
             using (con)
             {
                 con.Open();
-                SqlCommand cmd =new SqlCommand ("SELECT * from[TableUczniowie]", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from[TableUczniowie]", con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(reader);
@@ -156,6 +156,7 @@ namespace Sekretariat_v._2._0
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
+
             if(NazwaBomboBox.SelectedIndex == -1 ||KryteriaComboBox.SelectedIndex==-1||LiteraTextBox.Text=="")
             {
                 MessageBox.Show("uzupe³nij kryteria wyszukiwania");
@@ -172,14 +173,19 @@ namespace Sekretariat_v._2._0
                     {
                         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"SELECT* FROM [TableUczniowie] WHERE Imie Like '%@zawiera%')",con);
-                        
-                        cmd.Parameters.AddWithValue("@zawiera", KryteriaComboBox.Text);
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where imie LIKE '%"+LiteraTextBox.Text+"%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
                         DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        dt.Load(reader);
                         dataGridView1.DataSource = dt;
+                        con.Close();
+                        
+                        
+
+
+
+
 
 
                     }
@@ -243,6 +249,7 @@ namespace Sekretariat_v._2._0
                 NazwiskoInput.Text = string.Empty;
                 klasaInput.Text = string.Empty;
                 MessageBox.Show("Dodano!");
+                bindgrid();
 
             }
             else
