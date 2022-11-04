@@ -17,9 +17,9 @@ namespace Sekretariat_v._2._0
         {
             randomIMG();
             //tabControl1.Hide();
-
-           
-
+            //
+           //
+           //
         }
 
         private void label1_Click(object sender, EventArgs e)
