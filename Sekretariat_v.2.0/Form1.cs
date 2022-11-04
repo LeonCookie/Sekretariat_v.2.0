@@ -21,8 +21,26 @@ namespace Sekretariat_v._2._0
         {
             randomIMG();
             //tabControl1.Hide();
-            
+            bindgrid();
 
+
+
+        }
+        private void bindgrid()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+            
+            using (con)
+            {
+                con.Open();
+                SqlCommand cmd =new SqlCommand ("SELECT * from[TableUczniowie]", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+                con.Close();
+
+            }
 
 
         }
