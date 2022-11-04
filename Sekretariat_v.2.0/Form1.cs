@@ -20,7 +20,7 @@ namespace Sekretariat_v._2._0
         private void Form1_Load(object sender, EventArgs e)
         {
             randomIMG();
-            //tabControl1.Hide();
+            tabControl1.Hide();
             bindgrid();
 
 
@@ -191,7 +191,15 @@ namespace Sekretariat_v._2._0
                     }
                     else if (KryteriaComboBox.SelectedIndex == 1)//rozpoczyna sie
                     {
-
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where imie LIKE '" + LiteraTextBox.Text + "%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        dataGridView1.DataSource = dt;
+                        con.Close();
                     }
                 }
                 else if (NazwaBomboBox.SelectedIndex == 1)//nazwisko
@@ -199,11 +207,27 @@ namespace Sekretariat_v._2._0
                     Debug.WriteLine("Naziwsko");
                     if (KryteriaComboBox.SelectedIndex == 0)
                     {
-
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where nazwisko LIKE '%" + LiteraTextBox.Text + "%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        dataGridView1.DataSource = dt;
+                        con.Close();
                     }
                     else if (KryteriaComboBox.SelectedIndex == 1)
                     {
-
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where nazwisko LIKE '" + LiteraTextBox.Text + "%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        dataGridView1.DataSource = dt;
+                        con.Close();
                     }
                 }
                 else if (NazwaBomboBox.SelectedIndex == 2)//klasa
@@ -211,11 +235,27 @@ namespace Sekretariat_v._2._0
                     Debug.WriteLine("Klasa");
                     if (KryteriaComboBox.SelectedIndex == 0)
                     {
-
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where klasa LIKE '%" + LiteraTextBox.Text + "%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        dataGridView1.DataSource = dt;
+                        con.Close();
                     }
                     else if (KryteriaComboBox.SelectedIndex == 1)
                     {
-
+                        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\student\source\repos\LeonCookie\Sekretariat_v.2.0\Sekretariat_v.2.0\Database1.mdf;Integrated Security=True");
+                        con.Open();
+                        SqlCommand cmd = con.CreateCommand();
+                        cmd.CommandText = "Select * from[TableUczniowie]  where klasa LIKE '" + LiteraTextBox.Text + "%'";
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+                        dataGridView1.DataSource = dt;
+                        con.Close();
                     }
                 }
             }
