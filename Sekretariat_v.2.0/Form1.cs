@@ -125,66 +125,68 @@ namespace Sekretariat_v._2._0
         {
 
 
-            /*
-              string[] lines = System.IO.File.ReadAllLines(@"C:\Users\student\Desktop\uczen.txt");
-            textBox2.Text = "";
+            
+              //string[] lines = System.IO.File.ReadAllLines(@"C:\Users\student\Desktop\uczen.txt");
+              string[] lines = System.IO.File.ReadAllLines(@"C:\Users\leonr\OneDrive\Pulpit\uczen.txt");
+            LiteraTextBox.Text = "";
             foreach (string line in lines)
             {
-                if (comboBox1.SelectedIndex == 0)
+                if (NazwaBomboBox.SelectedIndex == 0)
                 {
-                    if (comboBox2.SelectedIndex == 0)
+                    if (KryteriaComboBox.SelectedIndex == 0)
                     {
-                        if (textBox1.Text == line.Split(' ')[0])
-                            textBox2.AppendText(line + "\r\n");
+                        if (LiteraTextBox.Text == line.Split(' ')[0])
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 2)
+                    if (KryteriaComboBox.SelectedIndex == 2)
                     {
-                        if (line.Split(' ')[0].Contains(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[0].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 1)
+                    if (KryteriaComboBox.SelectedIndex == 1)
                     {
-                        if (line.Split(' ')[0].StartsWith(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[0].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
                 }
-                if (comboBox1.SelectedIndex == 1)
+                if (NazwaBomboBox.SelectedIndex == 1)
                 {
-                    if (comboBox2.SelectedIndex == 0)
+                    if (KryteriaComboBox.SelectedIndex == 0)
                     {
-                        if (textBox1.Text == line.Split(' ')[1])
-                            textBox2.AppendText(line + "\r\n");
+                        if (LiteraTextBox.Text == line.Split(' ')[1])
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 2)
+                    if (KryteriaComboBox.SelectedIndex == 2)
                     {
-                        if (line.Split(' ')[1].Contains(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[1].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 1)
+                    if (KryteriaComboBox.SelectedIndex == 1)
                     {
-                        if (line.Split(' ')[1].StartsWith(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[1].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
                 }
-                if (comboBox1.SelectedIndex == 2)
+                if (NazwaBomboBox.SelectedIndex == 2)
                 {
-                    if (comboBox2.SelectedIndex == 0)
+                    if (KryteriaComboBox.SelectedIndex == 0)
                     {
-                        if (textBox1.Text == line.Split(' ')[2])
-                            textBox2.AppendText(line + "\r\n");
+                        if (LiteraTextBox.Text == line.Split(' ')[2])
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 2)
+                    if (KryteriaComboBox.SelectedIndex == 2)
                     {
-                        if (line.Split(' ')[2].Contains(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[2].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-                    if (comboBox2.SelectedIndex == 1)
+                    if (KryteriaComboBox.SelectedIndex == 1)
                     {
-                        if (line.Split(' ')[2].StartsWith(textBox1.Text))
-                            textBox2.AppendText(line + "\r\n");
+                        if (line.Split(' ')[2].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
                     }
-             */
 
+                }
+            }
         }
 
         private async void DodajButton_Click(object sender, EventArgs e)
