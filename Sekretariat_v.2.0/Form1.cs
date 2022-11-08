@@ -17,7 +17,7 @@ namespace Sekretariat_v._2._0
         {
             randomIMG();
             //tabControl1.Hide();
-           
+
 
         }
 
@@ -88,14 +88,14 @@ namespace Sekretariat_v._2._0
             }
             Debug.WriteLine(random1 + "   " + ScheckCode);
         }
-            
+
 
         int random1 = 1;
-        string Slogin,Spassword,Scode="";
+        string Slogin, Spassword, Scode = "";
         string ScheckCode = "";
         private void randomLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
             Debug.WriteLine("kliknieto link");
             randomIMG();
 
@@ -117,43 +117,92 @@ namespace Sekretariat_v._2._0
 
         }
 
-        string Search,Simie,Snaziwsko,Sklasa="";
+        string Search, Simie, Snaziwsko, Sklasa = "";
         int INazwaCombobox;
         int IKryteriaCombobox;
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-           
+
+
+            /*
+              string[] lines = System.IO.File.ReadAllLines(@"C:\Users\student\Desktop\uczen.txt");
+            textBox2.Text = "";
+            foreach (string line in lines)
+            {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (textBox1.Text == line.Split(' ')[0])
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[0].Contains(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[0].StartsWith(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                }
+                if (comboBox1.SelectedIndex == 1)
+                {
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (textBox1.Text == line.Split(' ')[1])
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[1].Contains(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[1].StartsWith(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                }
+                if (comboBox1.SelectedIndex == 2)
+                {
+                    if (comboBox2.SelectedIndex == 0)
+                    {
+                        if (textBox1.Text == line.Split(' ')[2])
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[2].Contains(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+                    if (comboBox2.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[2].StartsWith(textBox1.Text))
+                            textBox2.AppendText(line + "\r\n");
+                    }
+             */
+
         }
 
         private async void DodajButton_Click(object sender, EventArgs e)
         {
-            if(InputImie.Text !="" && NazwiskoInput.Text !="" && klasaInput.Text != "")
+            if (InputImie.Text != "" && NazwiskoInput.Text != "" && klasaInput.Text != "")
             {
-                InputImie.Text = Simie;
-                NazwiskoInput.Text = Snaziwsko;
-                klasaInput.Text = Sklasa;
+                string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-                Assembly asm = Assembly.GetExecutingAssembly();
-                StreamReader reader = new StreamReader(asm.GetManifestResourceStream("Sekretariat_v._2._0.Resources.uczen.txt"));
+                // zapisywanie do pliku
+                using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, "uczen.txt"), true))
+                {
+                    outputFile.WriteLine(InputImie.Text + " " + NazwiskoInput.Text + " " + klasaInput.Text);
+                }
+                InputImie.Text = " ";
+                NazwiskoInput.Text = " ";
+                klasaInput.Text = " ";
 
-                
-                
-                
-
-                TextWriter txt = new StreamWriter("C:\\Users\\student\\Desktop\\uczen.txt");
-                txt.Write(" ", Simie + " " + Snaziwsko + " " + Sklasa);
-                txt.Close();
-
-
-
-
-
-
-
-                Debug.WriteLine(reader.ReadToEnd());
-               
-
+                MessageBox.Show("Dodano ucznia!");
             }
             else
             {
@@ -167,7 +216,7 @@ namespace Sekretariat_v._2._0
             if (string.IsNullOrEmpty(Name_EditBox.Text) && (string.IsNullOrEmpty(Password_EditBox.Text) && (string.IsNullOrEmpty(Name_EditBox.Text))))
             {
                 MessageBox.Show("¯adne pole nie mo¿e zostaæ puste!");
-                
+
             }
             else
             {
@@ -205,19 +254,19 @@ namespace Sekretariat_v._2._0
                     BCanIdo = true;
                 }
 
-                if (Slogin == "admin" && Spassword== "Qwerty1@34" && BCanIdo==true)
+                if (Slogin == "admin" && Spassword == "Qwerty1@34" && BCanIdo == true)
                 {
-                    
-                    
-                        Debug.WriteLine("Witam w systemie");
-                        Slogin = "";
-                        Spassword = "";
-                        Name_EditBox.Clear();
-                        Password_EditBox.Clear();
-                        Code_EditBox.Clear();
-                        randomIMG();
-                        
-                    tabControl1.Location=(Location = new System.Drawing.Point(21,20));
+
+
+                    Debug.WriteLine("Witam w systemie");
+                    Slogin = "";
+                    Spassword = "";
+                    Name_EditBox.Clear();
+                    Password_EditBox.Clear();
+                    Code_EditBox.Clear();
+                    randomIMG();
+
+                    tabControl1.Location = (Location = new System.Drawing.Point(21, 20));
                     tabControl1.Show();
 
                 }
