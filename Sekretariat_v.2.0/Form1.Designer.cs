@@ -220,8 +220,8 @@
             this.KryteriaComboBox.FormattingEnabled = true;
             this.KryteriaComboBox.Items.AddRange(new object[] {
             "równe",
-            "zawiera",
-            "rozpoczyna się"});
+            "rozpoczyna się",
+            "zawiera"});
             this.KryteriaComboBox.Location = new System.Drawing.Point(376, 167);
             this.KryteriaComboBox.Name = "KryteriaComboBox";
             this.KryteriaComboBox.Size = new System.Drawing.Size(281, 33);
