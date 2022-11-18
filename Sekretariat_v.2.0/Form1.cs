@@ -136,7 +136,7 @@ namespace Sekretariat_v._2._0
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-            if
+            
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\student\Desktop\uczen.txt");
             textbox_wynik.Text = "";
             foreach (string line in lines)
@@ -211,7 +211,13 @@ namespace Sekretariat_v._2._0
                     outputFile.WriteLine(InputImie.Text + " " + NazwiskoInput.Text + " " + klasaInput.Text);
                     SaveFileDialog theDialog = new SaveFileDialog();
                 }
+                InputImie.Text = "";
+                NazwiskoInput.Text = "";
+                klasaInput.Text = "";
+                MessageBox.Show("Dodano ucznia!s");
             }
+            
+
             else
             {
                 MessageBox.Show("Prosze dokladnie wpisac dane do wprowadzeia");
