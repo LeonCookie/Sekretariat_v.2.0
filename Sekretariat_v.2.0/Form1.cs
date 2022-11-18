@@ -5,13 +5,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sekretariat_v._2._0
 {
     public partial class Form1 : Form
     {
-        
-        
+
+
 
 
 
@@ -130,80 +131,75 @@ namespace Sekretariat_v._2._0
         //string fileName = (@"C:\Users\leonr\OneDrive\Pulpit\uczen.txt");
         //(@"C:\Users\student\Desktop\uczen.txt");
         //(@"C:\Users\leonr\OneDrive\Pulpit\uczen.txt");
-        string fileName = (@"C:\Users\leonr\OneDrive\Pulpit\uczen.txt");
+        //string fileName = (@"C:\Users\leonr\OneDrive\Pulpit\uczen.txt");
+        string fileName = (@"C:\Users\student\Desktop\uczen.txt");
 
         private void SzukajButton_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine(fileName);
+            if
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\student\Desktop\uczen.txt");
+            textbox_wynik.Text = "";
+            foreach (string line in lines)
+            {
+                if (NazwaBomboBox.SelectedIndex == 0)
+                {
+                    if (KryteriaComboBox.SelectedIndex == 0)
+                    {
+                        if (LiteraTextBox.Text == line.Split(' ')[0])
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[0].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[0].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                }
+                if (NazwaBomboBox.SelectedIndex == 1)
+                {
+                    if (KryteriaComboBox.SelectedIndex == 0)
+                    {
+                        if (LiteraTextBox.Text == line.Split(' ')[1])
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[1].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[1].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                }
+                if (NazwaBomboBox.SelectedIndex == 2)
+                {
+                    if (KryteriaComboBox.SelectedIndex == 0)
+                    {
+                        if (LiteraTextBox.Text == line.Split(' ')[2])
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 1)
+                    {
+                        if (line.Split(' ')[2].Contains(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                    if (KryteriaComboBox.SelectedIndex == 2)
+                    {
+                        if (line.Split(' ')[2].StartsWith(LiteraTextBox.Text))
+                            textbox_wynik.AppendText(line + "\r\n");
+                    }
+                }
+            }
+        
 
-
-               using (StreamReader fs = File.OpenText(fileName))
-                           {
-                               string wynik = "";
-                               string linia = "";
-                           string[] dane_linia;
-                               while (( linia = fs.ReadLine())!= null)
-                               {
-                                    dane_linia = linia.Split(' ');
-                               if(NazwaBomboBox.Text != "" && KryteriaComboBox.Text != "" && LiteraTextBox.Text != "")
-                               {
-                                   if(NazwaBomboBox.Text == "Imie")
-                                   {
-                                       if (KryteriaComboBox.Text == "równe" && LiteraTextBox.Text == dane_linia[1])
-                                       {
-                                           wynik = wynik + linia+ "\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "zawiera" && dane_linia[1].Contains(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "rozpoczyna sie od" && dane_linia[1].StartsWith(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                   }
-                                   if (NazwaBomboBox.Text == "Nazwisko")
-                                   {
-                                       if (KryteriaComboBox.Text == "równe" && LiteraTextBox.Text == dane_linia[2])
-                                       {
-                                           wynik = wynik + linia+"\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "zawiera" && dane_linia[2].Contains(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "rozpoczyna sie od" && dane_linia[2].StartsWith(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                   }
-                                   if (NazwaBomboBox.Text == "Klasa")
-                                   {
-                                       if (KryteriaComboBox.Text == "równe" && LiteraTextBox.Text == dane_linia[3])
-                                       {
-                                           wynik = wynik + linia+ "\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "zawiera" && dane_linia[3].Contains(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                       if (KryteriaComboBox.Text == "rozpoczyna sie od" && dane_linia[3].StartsWith(LiteraTextBox.Text))
-                                       {
-                                           wynik = wynik + linia + "\n";
-                                       }
-                                   }
-                               }
-                               else
-                               {
-                                   wynik = wynik + linia + "\n";
-                               }
-                               }
-                               textbox_wynik.Text = wynik;
-                           }
-                        
-        }
-
-        private async void DodajButton_Click(object sender, EventArgs e)
+    }
+    private async void DodajButton_Click(object sender, EventArgs e)
         {
             if (InputImie.Text != "" && NazwiskoInput.Text != "" && klasaInput.Text != "")
             {
@@ -213,12 +209,8 @@ namespace Sekretariat_v._2._0
                 using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(docPath, "uczen.txt"), true))
                 {
                     outputFile.WriteLine(InputImie.Text + " " + NazwiskoInput.Text + " " + klasaInput.Text);
+                    SaveFileDialog theDialog = new SaveFileDialog();
                 }
-                InputImie.Text = " ";
-                NazwiskoInput.Text = " ";
-                klasaInput.Text = " ";
-
-                MessageBox.Show("Dodano ucznia!");
             }
             else
             {
